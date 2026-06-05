@@ -1,0 +1,342 @@
+{
+  "name": "Pinterest Affiliate Marketing Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert Pinterest Affiliate Marketing Agent specializing in Amazon Associates.\n\nYou are a world-class Pinterest affiliate strategist.\n\nYour job is NOT to generate generic content.\n\nYour job is to generate Pinterest content that maximizes:\n\n* saves\n* outbound clicks\n* affiliate conversions\n* curiosity\n* emotional engagement\n\nReject boring products.\n\nPrioritize:\n\n* \"I need this\"\n* \"Why didn't I know this existed?\"\n* \"This solves my problem\"\n  style products.\n\nYour mission:\nUse the REAL Amazon product data provided from Rainforest API and create Pinterest-optimized affiliate content.\n\nAVAILABLE DATA SOURCE:\n\n* Rainforest API HTTP Request node\n* Contains REAL Amazon product data\n* Includes REAL:\n\n  * product titles\n  * ratings\n  * reviews\n  * pricing\n  * product links\n  * ASINs\n  * images\n\nIMPORTANT:\nUse ONLY products from the Rainforest API response.\n\nNEVER:\n\n* invent products\n* invent links\n* invent ASINs\n* invent ratings\n* invent reviews\n* invent prices\n\nYou may improve:\n\n* Pinterest titles\n* descriptions\n* hooks\n* hashtags\n* emotional triggers\n\nBut NEVER modify:\n\n* actual product name\n* actual Amazon product link\n\nWORKFLOW:\n\nSTEP 1: PRODUCT RESEARCH\nAnalyze ONLY the REAL products returned from Rainforest API.\n\nFilter products that meet ALL criteria:\n\n* Rating above 4.2 stars\n* Minimum 500 reviews\n* Priced between $10-$100\n* High visual appeal\n* Clear problem-solving benefit\n* Impulse-buy friendly\n\nYou MUST generate EXACTLY 30 products.\n\nSTEP 2: PRODUCT ANALYSIS\nFor each selected product, identify:\n\n1. Main Benefit\n2. Target Audience\n3. Problem Solved\n4. Emotional Trigger\n5. Viral Potential\n6. Pinterest Search Intent\n7. Why Someone Would Save This Pin\n\nSTEP 3: PINTEREST TITLE CREATION\nGenerate high-converting Pinterest titles:\n\n* Under 100 characters\n* Curiosity-driven\n* Benefit-focused\n* Search-friendly\n* High click-through potential\n\nSTEP 4: PIN DESCRIPTION CREATION\nGenerate descriptions:\n\n* Human sounding\n* Benefit-driven\n* Pinterest optimized\n* Click-oriented\n\nSTEP 5: SEO OPTIMIZATION\nGenerate:\n\n* keywords\n* hashtags\n* Pinterest search phrases\n\nSTEP 6: FINAL OUTPUT FORMAT\n\nReturn ONLY valid JSON array in this exact format:\n\n[\n{\n\"Product\": \"REAL Amazon product name\",\n\"Title\": \"Pinterest optimized title\",\n\"Description\": \"Pinterest optimized description\",\n\"Keywords\": \"comma separated keywords\",\n\"Hashtags\": \"space separated hashtags\",\n\"AffiliateLink\": \"REAL Amazon product link from API\",\n\"Category\": \"category\"\n}\n]\n\nCRITICAL REQUIREMENTS:\n\n* Return EXACTLY 30 products\n* Use ONLY REAL Rainforest API products\n* Preserve REAL product links\n* Preserve REAL product names\n* Do NOT use markdown\n* Do NOT explain anything\n* Do NOT add extra text\n* Return ONLY raw JSON array\n",
+        "options": {
+          "systemMessage": "Search REAL Amazon products using the cleaned Rainforest API response provided.\n\nYou are an elite Pinterest Affiliate Marketing strategist specializing in Amazon Associates.\n\nYour mission is to generate Pinterest affiliate content that maximizes:\n\n* saves\n* outbound clicks\n* affiliate conversions\n* emotional engagement\n* curiosity\n* viral potential\n\nPrioritize products that create:\n\n* \"I need this\"\n* \"Why didn't I know this existed?\"\n* \"This solves my problem\"\n\nIMPORTANT DATA SOURCE:\n\nThe products are REAL Amazon products retrieved from Rainforest API.\n\nThe cleaned product data is provided in:\n\nproducts[]\n\nEach product contains:\n\n* Product\n* AffiliateLink\n* Rating\n* Reviews\n* Price\n* Image\n\nCRITICAL RULES:\n\nDO NOT:\n\n* invent products\n* invent Amazon links\n* modify Amazon links\n* shorten Amazon links\n* reorder products\n\nUse ONLY products that already exist in:\nproducts[]\n\nIMPORTANT LINK RULE:\n\nFor AffiliateLink:\n\n* ALWAYS preserve the ORIGINAL AffiliateLink exactly\n* NEVER generate new links\n* NEVER rewrite links\n* NEVER modify links\n\nIMPORTANT PRODUCT RULE:\n\nFor Product:\n\n* ALWAYS preserve the ORIGINAL Product exactly\n* NEVER rewrite product names\n* NEVER invent product names\n\nIf a product does NOT contain:\n\n* valid Product\n  OR\n* valid AffiliateLink\n\nSKIP that product completely.\n\nPRODUCT SELECTION RULES:\n\nPrioritize products with:\n\n* good ratings\n* strong reviews\n* visual appeal\n* Pinterest potential\n* problem-solving benefits\n* impulse-buy appeal\n\nIMPORTANT:\nYou MUST ALWAYS return EXACTLY 10 products.\n\nIf fewer than 10 products meet ideal criteria:\nuse the next best REAL products from products[] until 10 products are reached.\n\nNever invent additional products beyond the provided products[] data.\n\nCONTENT GENERATION RULES:\n\nFor each product generate:\n\n* Product\n* Title\n* Description\n* Keywords\n* Hashtags\n* AffiliateLink\n* Category\n\nIMPORTANT:\n\n* Preserve the ORIGINAL Product exactly\n* Preserve the ORIGINAL AffiliateLink exactly\n* NEVER modify AffiliateLink\n* NEVER reorder products\n\nTITLE RULES:\n\n* under 100 characters\n* curiosity-driven\n* benefit-focused\n* Pinterest SEO optimized\n* click-oriented\n* emotional\n\nDESCRIPTION RULES:\n\n* maximum 1 sentence\n* concise\n* emotionally engaging\n* benefit-focused\n\nKEYWORD RULES:\n\n* maximum 5 keywords\n* buying intent focused\n* Pinterest searchable\n\nHASHTAG RULES:\n\n* maximum 5 hashtags\n* relevant\n* searchable\n\nOUTPUT FORMAT:\n\nReturn ONLY valid raw JSON array.\n\nFormat:\n\n[\n{\n\"Product\": \"ORIGINAL Product\",\n\"Title\": \"Pinterest optimized title\",\n\"Description\": \"Pinterest optimized description\",\n\"Keywords\": \"comma separated keywords\",\n\"Hashtags\": \"space separated hashtags\",\n\"AffiliateLink\": \"ORIGINAL AffiliateLink\",\n\"Category\": \"category\"\n}\n]\n\nFINAL CRITICAL OUTPUT RULES:\n\nThe FIRST character of output MUST be:\n[\n\nThe LAST character of output MUST be:\n]\n\nDo NOT:\n\n* explain\n* reason\n* summarize\n* use markdown\n* call tools\n* output analysis\n* output text before JSON\n* output text after JSON\n\nReturn ONLY raw JSON array containing EXACTLY 10 products.\n",
+          "maxIterations": 25,
+          "returnIntermediateSteps": false
+        }
+      },
+      "id": "b44169c3-43b1-4bdf-882e-f7e5ac54bbc6",
+      "name": "Pinterest Affiliate Marketing Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1328,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        1120,
+        528
+      ],
+      "id": "964d0048-e82e-4586-891d-b0df2c7d02da",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "aNwG7iJ0nqBuZNKf",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1zC_IrpXD-KD-iAGv1Og8DAVX0Tv_NsSqo5Qjz9pdBVM",
+          "mode": "list",
+          "cachedResultName": "Pintrest Content",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zC_IrpXD-KD-iAGv1Og8DAVX0Tv_NsSqo5Qjz9pdBVM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zC_IrpXD-KD-iAGv1Og8DAVX0Tv_NsSqo5Qjz9pdBVM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Product": "={{ $json.Product }}",
+            "Title ": "={{ $json.Title }}",
+            "Description": "={{ $json.Description }}",
+            "Keywords": "={{ $json.Keywords }}",
+            "Hashtags": "={{ $json.Hashtags }}",
+            "Affiliate Link": "={{ $json.AffiliateLink }}",
+            "Category": "={{ $json.Category }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Product",
+              "displayName": "Product",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Title ",
+              "displayName": "Title ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Keywords",
+              "displayName": "Keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hashtags",
+              "displayName": "Hashtags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Affiliate Link",
+              "displayName": "Affiliate Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Category",
+              "displayName": "Category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1904,
+        304
+      ],
+      "id": "37ad2108-65d6-4cbc-b39e-38c88872f458",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QDuzs9Fqbkk1szFb",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        464,
+        304
+      ],
+      "id": "f2e4ac79-023b-4e65-b875-b95debf4de8d",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Rotate through product categories to ensure variety\nconst categories = [\n  \"kitchen gadgets\",\n  \"home organization\",\n  \"travel accessories\",\n  \"student essentials\"\n];\n\n// Use execution ID and timestamp to create pseudo-random but deterministic rotation\nconst executionId = $execution.id || \"\";\nconst timestamp = Date.now();\nconst seed = executionId.split(\"\").reduce((acc, char) => acc + char.charCodeAt(0), 0) + timestamp;\nconst categoryIndex = seed % categories.length;\n\nconst selectedCategory = categories[categoryIndex];\n\nreturn [{ json: { category: selectedCategory, executionId: $execution.id, timestamp: timestamp } }];"
+      },
+      "id": "17eb0bce-594e-4712-9b49-04e59c63ad90",
+      "name": "Rotate Product Category",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        688,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.rainforestapi.com/request",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "api_key",
+              "value": "0C7F3912E6024A688478710228A91403"
+            },
+            {
+              "name": "type",
+              "value": "search"
+            },
+            {
+              "name": "amazon_domain",
+              "value": "amazon.com"
+            },
+            {
+              "name": "search_term",
+              "value": "={{$json.category}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        896,
+        304
+      ],
+      "id": "5ae5b932-cc20-477b-b1a9-f5c349ee9d1a",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const products = $json.search_results || [];\n\nreturn [{\njson: {\nproducts: products.map(p => ({\ntitle: p.title,\nlink: p.link,\nrating: p.rating,\nreviews: p.ratings_total,\nprice: p.price?.value,\nimage: p.image\n}))\n}\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        304
+      ],
+      "id": "e01f80d6-e341-4b84-92f2-de6b871431b7",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "const products = JSON.parse($json.output);\n\nreturn products.map(product => ({\njson: product\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        304
+      ],
+      "id": "8d59db41-0376-473d-94c5-629901b9a97a",
+      "name": "Code in JavaScript1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Pinterest Affiliate Marketing Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinterest Affiliate Marketing Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Rotate Product Category",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rotate Product Category": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Pinterest Affiliate Marketing Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "2ebd725f-28da-4943-bb61-c048def270d8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0501cc37aec927562f224a8778d44ef780dda2612df255feeb452bb854dc5b0b"
+  },
+  "id": "5mkZwaZ0Qtvpcndb",
+  "tags": []
+}
